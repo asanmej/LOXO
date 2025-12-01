@@ -1,0 +1,315 @@
+{
+    "@context": "https://w3id.org/ro/crate/1.1/context",
+    "@graph": [
+        {
+            "@id": "./",
+            "@type": "Dataset",
+            "creator": "Common Data Model Builder",
+            "datePublished": "2025-10-07T12:00:56+00:00",
+            "description": "El objetivo principal de este proyecto es analizar la evoluci\u00f3n de la multimorbilidad (MM), sus patrones y trayectorias en la poblaci\u00f3n atendida en el SNS (2012-2022), y analizar los factores que determinan la mejor evoluci\u00f3n en resultados en salud. Este modelo de datos responde a este objetivo para poder definir la poblacion y las variables necesarias para poder responder a este objetivo.  ",
+            "hasPart": [
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/README.md"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/LICENSE.md"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/man_container_deployment.md"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/.gitignore"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/inputs/data.duckdb"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/src/dqa-scripts/dqa.py"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/src/validation-scripts/validator.py"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/src/validation-scripts/validator_report.qmd"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/src/validation-scripts/_quarto.yml"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/src/analysis-scripts/r_report_template.qmd"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/src/analysis-scripts/_quarto.yml"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/cdmb_config.json"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/common_datamodel.xlsx"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/synthetic-data/synthetic_pacientes.csv"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/entities/pacientes/validation-rules/rules_set_pacientes.json"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/synthetic-data/synthetic_Enfermedades.csv"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/entities/Enfermedades/validation-rules/rules_set_Enfermedades.json"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/synthetic-data/synthetic_usorecursos.csv"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/entities/usorecursos/validation-rules/rules_set_usorecursos.json"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/synthetic-data/synthetic_hospitalizaciones.csv"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/entities/hospitalizaciones/validation-rules/rules_set_hospitalizaciones.json"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/synthetic-data/synthetic_Farmacos.csv"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/entities/Farmacos/validation-rules/rules_set_Farmacos.json"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/synthetic-data/synthetic_parametros.csv"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/entities/parametros/validation-rules/rules_set_parametros.json"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/synthetic-data/synthetic_factoresRiesgo.csv"
+                },
+                {
+                    "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/entities/factoresRiesgo/validation-rules/rules_set_factoresRiesgo.json"
+                }
+            ],
+            "keywords": "Trayectorias, Multimorbilidad, Patrones",
+            "license": "CC BY 4.0 https://creativecommons.org/licenses/by/4.0/",
+            "name": "Trayectorias y experiencias de las personas con Multimorbilidad en el Servicio Nacional de Salud en Espa\u00f1a 2021-2022 (Proyecto LOXO-MULTIPAP)"
+        },
+        {
+            "@id": "ro-crate-metadata.json",
+            "@type": "CreativeWork",
+            "about": {
+                "@id": "./"
+            },
+            "conformsTo": {
+                "@id": "https://w3id.org/ro/crate/1.1"
+            }
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/README.md",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "text/markdown",
+            "name": "README"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/LICENSE.md",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "text/markdown",
+            "name": "License"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/man_container_deployment.md",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "text/markdown",
+            "name": "Manual on how to deploy the project in a docker container"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/.gitignore",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "text/plain",
+            "name": ".gitignore file"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/inputs/data.duckdb",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "application/octet-stream",
+            "name": "SQL OLAP auxiliary database"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/src/dqa-scripts/dqa.py",
+            "@type": [
+                "File",
+                "SoftwareSourceCode"
+            ],
+            "author": [],
+            "encodingFormat": "text/plain",
+            "name": "Data Quality Assessment script"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/src/validation-scripts/validator.py",
+            "@type": [
+                "File",
+                "SoftwareSourceCode"
+            ],
+            "author": [],
+            "encodingFormat": "text/plain",
+            "name": "Rules validator file"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/src/validation-scripts/validator_report.qmd",
+            "@type": [
+                "File",
+                "SoftwareSourceCode"
+            ],
+            "author": [],
+            "encodingFormat": "text/plain",
+            "name": "Rules validator report"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/src/validation-scripts/_quarto.yml",
+            "@type": [
+                "File",
+                "SoftwareSourceCode"
+            ],
+            "author": [],
+            "encodingFormat": "text/yaml",
+            "name": "Rules validator report metadata"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/src/analysis-scripts/r_report_template.qmd",
+            "@type": [
+                "File",
+                "SoftwareSourceCode"
+            ],
+            "author": [],
+            "encodingFormat": "text/plain",
+            "name": "Quarto analysis script template"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/src/analysis-scripts/_quarto.yml",
+            "@type": [
+                "File",
+                "SoftwareSourceCode"
+            ],
+            "author": [],
+            "encodingFormat": "text/yaml",
+            "name": "Analysis script report metadata"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/cdmb_config.json",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "application/json",
+            "name": "CDM builder and project configuration file"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/common_datamodel.xlsx",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "name": "Common Data Model spreadsheet"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/synthetic-data/synthetic_pacientes.csv",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "text/csv",
+            "name": "Synthetic data for entity: pacientes"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/entities/pacientes/validation-rules/rules_set_pacientes.json",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "application/json",
+            "name": "Rule set for entity: pacientes"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/synthetic-data/synthetic_Enfermedades.csv",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "text/csv",
+            "name": "Synthetic data for entity: Enfermedades"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/entities/Enfermedades/validation-rules/rules_set_Enfermedades.json",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "application/json",
+            "name": "Rule set for entity: Enfermedades"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/synthetic-data/synthetic_usorecursos.csv",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "text/csv",
+            "name": "Synthetic data for entity: usorecursos"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/entities/usorecursos/validation-rules/rules_set_usorecursos.json",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "application/json",
+            "name": "Rule set for entity: usorecursos"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/synthetic-data/synthetic_hospitalizaciones.csv",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "text/csv",
+            "name": "Synthetic data for entity: hospitalizaciones"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/entities/hospitalizaciones/validation-rules/rules_set_hospitalizaciones.json",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "application/json",
+            "name": "Rule set for entity: hospitalizaciones"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/synthetic-data/synthetic_Farmacos.csv",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "text/csv",
+            "name": "Synthetic data for entity: Farmacos"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/entities/Farmacos/validation-rules/rules_set_Farmacos.json",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "application/json",
+            "name": "Rule set for entity: Farmacos"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/synthetic-data/synthetic_parametros.csv",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "text/csv",
+            "name": "Synthetic data for entity: parametros"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/entities/parametros/validation-rules/rules_set_parametros.json",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "application/json",
+            "name": "Rule set for entity: parametros"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/synthetic-data/synthetic_factoresRiesgo.csv",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "text/csv",
+            "name": "Synthetic data for entity: factoresRiesgo"
+        },
+        {
+            "@id": "tmp9d9tmcyu/20251007140055_cdmb/docs/CDM/entities/factoresRiesgo/validation-rules/rules_set_factoresRiesgo.json",
+            "@type": "File",
+            "author": [],
+            "encodingFormat": "application/json",
+            "name": "Rule set for entity: factoresRiesgo"
+        }
+    ]
+}

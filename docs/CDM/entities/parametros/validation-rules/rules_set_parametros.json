@@ -1,0 +1,35 @@
+{
+    "description": "The expressions of the different rules follow the syntax of the SQL OLAP database \n        management system called DuckDB. For more information, visit https://duckdb.org/docs/sql/introduction. \n        Keep in mind that you only have to declare as a rule the statement that would follow a WHERE clause. \n        e.g.,  Select * from people WHERE {expression}\n        expression = age >= 18\n        ",
+    "rules": [
+        {
+            "expression": "F_param BETWEEN 2012 AND 2022",
+            "name": "F_param",
+            "description": "Rule for column F_param"
+        },
+        {
+            "expression": "MDRD BETWEEN 0 AND 120",
+            "name": "MDRD",
+            "description": "Rule for column MDRD"
+        },
+        {
+            "expression": "CKDEPI BETWEEN 0 AND 120",
+            "name": "CKDEPI",
+            "description": "Rule for column CKDEPI"
+        },
+        {
+            "expression": "talla >= 100",
+            "name": "talla",
+            "description": "Rule for column talla"
+        },
+        {
+            "expression": "peso >= 40",
+            "name": "peso",
+            "description": "Rule for column peso"
+        },
+        {
+            "expression": "BMI BETWEEN 15 AND 50",
+            "name": "BMI",
+            "description": "Rule for column BMI"
+        }
+    ]
+}

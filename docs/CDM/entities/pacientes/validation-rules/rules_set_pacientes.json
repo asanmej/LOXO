@@ -1,0 +1,90 @@
+{
+    "description": "The expressions of the different rules follow the syntax of the SQL OLAP database \n        management system called DuckDB. For more information, visit https://duckdb.org/docs/sql/introduction. \n        Keep in mind that you only have to declare as a rule the statement that would follow a WHERE clause. \n        e.g.,  Select * from people WHERE {expression}\n        expression = age >= 18\n        ",
+    "rules": [
+        {
+            "expression": "F_Nac < 1952",
+            "name": "F_Nac",
+            "description": "Rule for column F_Nac"
+        },
+        {
+            "expression": "Sexo IN ('M', 'F', 'NA')",
+            "name": "Sexo",
+            "description": "Rule for column Sexo"
+        },
+        {
+            "expression": "CCAA IN ('Andalucia', 'Aragon', 'Canarias', 'Cantabria', 'Castilla_Leon', 'Castilla_LaMancha', 'Catalunia', 'Comunidad_Madrid', 'Comunidad_Foral_Navarra', 'Comunidad_Valenciana', 'Extremadura', 'Galicia', 'Islas_Baleares', 'La_Rioja', 'Pais_Vasco', 'Principado_Asturias', 'Region_Murcia')",
+            "name": "CCAA",
+            "description": "Rule for column CCAA"
+        },
+        {
+            "expression": "Pais_Nac BETWEEN 100 AND 600",
+            "name": "Pais_Nac",
+            "description": "Rule for column Pais_Nac"
+        },
+        {
+            "expression": "Nacionalidad IN ('Espana', 'America_Sur', 'America_Norte', 'Asia_Oceania', 'Europa', 'Africa', 'Otros')",
+            "name": "Nacionalidad",
+            "description": "Rule for column Nacionalidad"
+        },
+        {
+            "expression": "Area IN ('URBANO', 'RURAL')",
+            "name": "Area",
+            "description": "Rule for column Area"
+        },
+        {
+            "expression": "MEDEA BETWEEN 1 AND 5",
+            "name": "MEDEA",
+            "description": "Rule for column MEDEA"
+        },
+        {
+            "expression": "TSI IN ('TSI001', 'TSI002_01', 'TSI002_02', 'TSI003', 'TSI004', 'TSI005', 'TSI005_03', 'TSI006', 'Otro', 'NA')",
+            "name": "TSI",
+            "description": "Rule for column TSI"
+        },
+        {
+            "expression": "Baja IN ('0', '1')",
+            "name": "Baja",
+            "description": "Rule for column Baja"
+        },
+        {
+            "expression": "F_Baja BETWEEN 2012 AND 2022",
+            "name": "F_Baja",
+            "description": "Rule for column F_Baja"
+        },
+        {
+            "expression": "F_Exitus BETWEEN ''2012-01-01'' AND ''2022-12-31''",
+            "name": "F_Exitus",
+            "description": "Rule for column F_Exitus"
+        },
+        {
+            "expression": "Dependencia IN ('0', '1')",
+            "name": "Dependencia",
+            "description": "Rule for column Dependencia"
+        },
+        {
+            "expression": "F_Dependencia BETWEEN 2012 AND 2022",
+            "name": "F_Dependencia",
+            "description": "Rule for column F_Dependencia"
+        },
+        {
+            "expression": "Institucionalizacion IN ('0', '1')",
+            "name": "Institucionalizacion",
+            "description": "Rule for column Institucionalizacion"
+        },
+        {
+            "expression": "F_Institucionalizacion BETWEEN 2012 AND 2022",
+            "name": "F_Institucionalizacion",
+            "description": "Rule for column F_Institucionalizacion"
+        },
+        {
+            "expression": "CronDom IN ('0', '1')",
+            "name": "CronDom",
+            "description": "Rule for column CronDom"
+        },
+        {
+            "expression": "F_CronDom BETWEEN 2012 AND 2022",
+            "name": "F_CronDom",
+            "description": "Rule for column F_CronDom"
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+**/inputs/data.duckdb
+**/docs/CDM/hashed_files_list.json
+.git*
+inputs/*
+ouputs/*
+!outputs/logs/readme.txt
+!outputs/readme.txt
+src/check_load-scripts/inputs/*
+!src/check_load-scripts/inputs/readme.txt
