@@ -33,7 +33,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ghcr.io/${{ env.IMAGE_NAME }}:${{env.TAG_NAME}},ghcr.io/${{ env.IMAGE_NAME }}:latest
+          tags: ghcr.io/asanmej/loxo:${{env.TAG_NAME}},ghcr.io/asanmej/loxo:latest
           file: ./Dockerfile
           build-args: |
             pipeline_version=${{ env.TAG_NAME }}
