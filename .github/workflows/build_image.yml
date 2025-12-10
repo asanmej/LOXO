@@ -18,7 +18,7 @@ jobs:
         id-token: write # needed for signing the images with GitHub OIDC Token
     steps:
       - name: Get tag name from GITHUB_REF
-        run: echo "TAG_NAME=${{ github.ref == '' && 'nonversioned' || github.ref#refs/tags/ }}" >> $GITHUB_ENV
+        run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
