@@ -2,6 +2,11 @@
     "description": "The expressions of the different rules follow the syntax of the SQL OLAP database \n        management system called DuckDB. For more information, visit https://duckdb.org/docs/sql/introduction. \n        Keep in mind that you only have to declare as a rule the statement that would follow a WHERE clause. \n        e.g.,  Select * from people WHERE {expression}\n        expression = age >= 18\n        ",
     "rules": [
         {
+            "expression": "Id_pac IN (SELECT Id_pac FROM Pacientes)",
+            "name": "integridad_referencial_paciente",
+            "description": "Verifica que el Id_pac de la tabla Enfermedades exista en la tabla Pacientes."
+        },
+        {
             "expression": "F_Hosp BETWEEN '2012-01-01' AND '2022-12-31'",
             "name": "F_Hosp",
             "description": "Rule for column F_Hosp"
@@ -20,11 +25,6 @@
             "expression": "Estancia != 0",
             "name": "Estancia",
             "description": "Rule for column Estancia"
-        },
-        {
-            "expression": "Diag = 'NboWRQSncdhBpgvALkXT'",
-            "name": "Diag",
-            "description": "Rule for column 'Diag'"
         },
         {
             "expression": "Dic_diag IN ('CIAP', 'CIE9', 'CIE10', 'Snack')",

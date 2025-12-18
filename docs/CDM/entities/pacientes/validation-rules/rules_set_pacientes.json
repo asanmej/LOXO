@@ -2,7 +2,7 @@
     "description": "The expressions of the different rules follow the syntax of the SQL OLAP database \n        management system called DuckDB. For more information, visit https://duckdb.org/docs/sql/introduction. \n        Keep in mind that you only have to declare as a rule the statement that would follow a WHERE clause. \n        e.g.,  Select * from people WHERE {expression}\n        expression = age >= 18\n        ",
     "rules": [
         {
-            "expression": "F_Nac < 1952",
+            "expression": "F_Nac BETWEEN 1917 AND 1952",
             "name": "F_Nac",
             "description": "Rule for column F_Nac"
         },
