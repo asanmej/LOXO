@@ -2,12 +2,12 @@
     "description": "The expressions of the different rules follow the syntax of the SQL OLAP database \n        management system called DuckDB. For more information, visit https://duckdb.org/docs/sql/introduction. \n        Keep in mind that you only have to declare as a rule the statement that would follow a WHERE clause. \n        e.g.,  Select * from people WHERE {expression}\n        expression = age >= 18\n        ",
     "rules": [
         {
-            "expression": "F_Nac BETWEEN 1917 AND 1952",
+            "expression": "F_Nac BETWEEN 1920 AND 1951",
             "name": "F_Nac",
             "description": "Rule for column F_Nac"
         },
         {
-            "expression": "Sexo IN ('M', 'F', 'NA')",
+            "expression": "Sexo IN ('H', 'M') or Sexo IS NULL",
             "name": "Sexo",
             "description": "Rule for column Sexo"
         },
@@ -17,7 +17,7 @@
             "description": "Rule for column CCAA"
         },
         {
-            "expression": "Pais_Nac BETWEEN 100 AND 600",
+            "expression": "Pais_Nac BETWEEN 100 AND 600 or Pais_Nac IS NULL",
             "name": "Pais_Nac",
             "description": "Rule for column Pais_Nac"
         },
@@ -37,7 +37,7 @@
             "description": "Rule for column MEDEA"
         },
         {
-            "expression": "TSI IN ('TSI001', 'TSI002_01', 'TSI002_02', 'TSI003', 'TSI004', 'TSI005', 'TSI005_03', 'TSI006', 'Otro', 'NA')",
+            "expression": "TSI IN ('TSI001', 'TSI002_01', 'TSI002_02', 'TSI003', 'TSI004', 'TSI005', 'TSI005_03', 'TSI006', 'Otros') or TSI IS NULL",
             "name": "TSI",
             "description": "Rule for column TSI"
         },
@@ -47,12 +47,12 @@
             "description": "Rule for column Baja"
         },
         {
-            "expression": "F_Baja BETWEEN 2012 AND 2022",
+            "expression": "F_Baja BETWEEN 2012 AND 2022 or F_Baja IS NULL",
             "name": "F_Baja",
             "description": "Rule for column F_Baja"
         },
         {
-            "expression": "F_Exitus BETWEEN '2012-01-01' AND '2022-12-31'",
+            "expression": "F_Exitus BETWEEN '2012-01-01' AND '2022-12-31' OR F_Exitus IS NULL",
             "name": "F_Exitus",
             "description": "Rule for column F_Exitus"
         },
@@ -62,7 +62,7 @@
             "description": "Rule for column Dependencia"
         },
         {
-            "expression": "F_Dependencia BETWEEN 2012 AND 2022",
+            "expression": "F_Dependencia BETWEEN 1920 AND 2022 OR F_Dependencia IS NULL",
             "name": "F_Dependencia",
             "description": "Rule for column F_Dependencia"
         },
@@ -72,7 +72,7 @@
             "description": "Rule for column Institucionalizacion"
         },
         {
-            "expression": "F_Institucionalizacion BETWEEN 2012 AND 2022",
+            "expression": "F_Institucionalizacion BETWEEN 1920 AND 2022 OR F_Institucionalizacion IS NULL",
             "name": "F_Institucionalizacion",
             "description": "Rule for column F_Institucionalizacion"
         },
@@ -82,7 +82,7 @@
             "description": "Rule for column CronDom"
         },
         {
-            "expression": "F_CronDom BETWEEN 2012 AND 2022",
+            "expression": "F_CronDom BETWEEN 1920 AND 2022 OR F_CronDom IS NULL",
             "name": "F_CronDom",
             "description": "Rule for column F_CronDom"
         }

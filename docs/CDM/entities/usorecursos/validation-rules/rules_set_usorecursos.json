@@ -4,7 +4,7 @@
         {
             "expression": "Id_pac IN (SELECT Id_pac FROM Pacientes)",
             "name": "integridad_referencial_paciente",
-            "description": "Verifica que el Id_pac de la tabla Enfermedades exista en la tabla Pacientes."
+            "description": "Verifica que el Id_pac de la tabla usoRecursos exista en la tabla Pacientes."
         },
         {
             "expression": "F_contacto BETWEEN 2012 AND 2022",

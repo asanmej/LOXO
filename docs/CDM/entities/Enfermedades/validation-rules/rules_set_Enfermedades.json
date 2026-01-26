@@ -7,7 +7,7 @@
             "description": "Verifica que el Id_pac de la tabla Enfermedades exista en la tabla Pacientes."
         },
         {
-            "expression": "F_EnfC BETWEEN '1902-01-01'' AND '2022-12-31'",
+            "expression": "F_EnfC BETWEEN '1920-01-01' AND '2022-12-31' OR F_EnfC IS NULL",
             "name": "F_EnfC",
             "description": "Rule for column 'F_EnfC'"
         },

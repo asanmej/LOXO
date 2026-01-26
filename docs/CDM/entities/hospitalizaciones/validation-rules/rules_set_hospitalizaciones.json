@@ -4,7 +4,7 @@
         {
             "expression": "Id_pac IN (SELECT Id_pac FROM Pacientes)",
             "name": "integridad_referencial_paciente",
-            "description": "Verifica que el Id_pac de la tabla Enfermedades exista en la tabla Pacientes."
+            "description": "Verifica que el Id_pac de la tabla hospitalizaciones exista en la tabla Pacientes."
         },
         {
             "expression": "F_Hosp BETWEEN '2012-01-01' AND '2022-12-31'",
@@ -22,9 +22,14 @@
             "description": "Rule for column Prioridad"
         },
         {
-            "expression": "Estancia != 0",
+            "expression": "Estancia >= 0",
             "name": "Estancia",
             "description": "Rule for column Estancia"
+        },
+        {
+            "expression": "Estancia > 365",
+            "name": "Estancia_outliers",
+            "description": "Rule for column Estancia percentage of outliers"
         },
         {
             "expression": "Dic_diag IN ('CIAP', 'CIE9', 'CIE10', 'Snack')",
