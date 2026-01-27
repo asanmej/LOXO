@@ -4,7 +4,7 @@
         {
             "expression": "Id_pac IN (SELECT Id_pac FROM Pacientes)",
             "name": "integridad_referencial_paciente",
-            "description": "Verifica que el Id_pac de la tabla Enfermedades exista en la tabla Pacientes."
+            "description": "Verifica que el Id_pac de la tabla parametros exista en la tabla Pacientes."
         },
         {
             "expression": "F_param BETWEEN 2012 AND 2022",
@@ -35,6 +35,21 @@
             "expression": "BMI BETWEEN 15 AND 50",
             "name": "BMI",
             "description": "Rule for column BMI"
+        },
+        {
+            "expression": "Creatinina BETWEEN 0 AND 5",
+            "name": "Creatinina",
+            "description": "Rule for column Urea"
+        },
+        {
+            "expression": "Urea BETWEEN 0 AND 10",
+            "name": "Urea",
+            "description": "Rule for column Urea"
+        },
+        {
+            "expression": "Albumina BETWEEN 0 AND 10",
+            "name": "Albumina",
+            "description": "Rule for column Albumina"
         }
     ]
 }

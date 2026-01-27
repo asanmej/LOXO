@@ -4,7 +4,7 @@
         {
             "expression": "Id_pac IN (SELECT Id_pac FROM Pacientes)",
             "name": "integridad_referencial_paciente",
-            "description": "Verifica que el Id_pac de la tabla Enfermedades exista en la tabla Pacientes."
+            "description": "Verifica que el Id_pac de la tabla factoresRiesgo exista en la tabla Pacientes."
         },
         {
             "expression": "F_factoresRiesgo BETWEEN 2012 AND 2022",
@@ -12,42 +12,42 @@
             "description": "Rule for column F_factoresRiesgo"
         },
         {
-            "expression": "Fumador IN ('Fumador', 'No_fumador', 'EX_Fumador', 'NA')",
+            "expression": "Fumador IN ('Fumador', 'No_fumador', 'Ex_Fumador') OR Fumador IS NULL",
             "name": "Fumador",
             "description": "Rule for column Fumador"
         },
         {
-            "expression": "Alcohol IN ('No_Bebedor', 'Bebedor_BajoRiesgo', 'Bebedor_AltoRiesgo', 'NA')",
+            "expression": "Alcohol IN ('No_Bebedor', 'Bebedor_BajoRiesgo', 'Bebedor_AltoRiesgo') OR Alcohol IS NULL",
             "name": "Alcohol",
             "description": "Rule for column Alcohol"
         },
         {
-            "expression": "Fragilidad_bi IN ('Si', 'No', 'NA')",
+            "expression": "Fragilidad_bi IN (1, 0)",
             "name": "Fragilidad_bi",
             "description": "Rule for column Fragilidad_bi"
         },
         {
-            "expression": "Fragilidad_score BETWEEN 0 AND 36",
+            "expression": "Fragilidad_score BETWEEN 0 AND 36 OR Fragilidad_score IS NULL",
             "name": "Fragilidad_score",
             "description": "Rule for column Fragilidad_score"
         },
         {
-            "expression": "Fragilidad_disease BETWEEN 0 AND 20",
+            "expression": "Fragilidad_disease BETWEEN 0 AND 20 OR Fragilidad_disease IS NULL",
             "name": "Fragilidad_disease",
             "description": "Rule for column Fragilidad_disease"
         },
         {
-            "expression": "Fragilidad_SSLD BETWEEN 0 AND 16",
+            "expression": "Fragilidad_SSLD BETWEEN 0 AND 16 OR Fragilidad_SSLD IS NULL",
             "name": "Fragilidad_SSLD",
             "description": "Rule for column Fragilidad_SSLD"
         },
         {
-            "expression": "Barthel_score BETWEEN 0 AND 100",
+            "expression": "Barthel_score BETWEEN 0 AND 100 OR Barthel_score IS NULL",
             "name": "Barthel_score",
             "description": "Rule for column Barthel_score"
         },
         {
-            "expression": "Pfeiffer_score BETWEEN 1 AND 10",
+            "expression": "Pfeiffer_score BETWEEN 0 AND 10 OR Pfeiffer_score IS NULL",
             "name": "Pfeiffer_score",
             "description": "Rule for column Pfeiffer_score"
         },
