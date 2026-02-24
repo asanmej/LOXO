@@ -391,7 +391,7 @@
                     "description": "Rule for column Area"
                 },
                 {
-                    "expression": "MEDEA BETWEEN 1 AND 5",
+                    "expression": "MEDEA::INTEGER BETWEEN 1 AND 5",
                     "name": "MEDEA",
                     "description": "Rule for column MEDEA"
                 },
@@ -441,7 +441,7 @@
                     "description": "Rule for column CronDom"
                 },
                 {
-                    "expression": "F_CronDom BETWEEN 1920 AND 2022 OR F_CronDom IS NULL",
+                    "expression": "F_CronDom BETWEEN 2000 AND 2022 OR F_CronDom IS NULL",
                     "name": "F_CronDom",
                     "description": "Rule for column F_CronDom"
                 }
@@ -1092,13 +1092,23 @@
                 },
                 {
                     "expression": "talla >= 100",
-                    "name": "talla",
-                    "description": "Rule for column talla"
+                    "name": "ok_talla",
+                    "description": "Rule for feasable talla"
+                },
+                {
+                    "expression": "talla < 100",
+                    "name": "not_ok_talla",
+                    "description": "Rule for unfeasable talla"
                 },
                 {
                     "expression": "peso >= 40",
-                    "name": "peso",
-                    "description": "Rule for column peso"
+                    "name": "ok_peso",
+                    "description": "Rule for feasable peso"
+                },
+                {
+                    "expression": "peso < 40",
+                    "name": "not_ok_peso",
+                    "description": "Rule for unfeasable peso"
                 },
                 {
                     "expression": "BMI BETWEEN 15 AND 50",
@@ -1106,17 +1116,17 @@
                     "description": "Rule for column BMI"
                 },
                 {
-                    "expression": "Creatinina BETWEEN 0 AND 5",
+                    "expression": "Creatinina BETWEEN 0 AND 5 OR Creatinina IS NULL",
                     "name": "Creatinina",
                     "description": "Rule for column Urea"
                 },
                 {
-                    "expression": "Urea BETWEEN 0 AND 10",
+                    "expression": "Urea BETWEEN 0 AND 100 OR Urea IS NULL",
                     "name": "Urea",
                     "description": "Rule for column Urea"
                 },
                 {
-                    "expression": "Albumina BETWEEN 0 AND 10",
+                    "expression": "Albumina BETWEEN 0 AND 10 OR Albumina IS NULL",
                     "name": "Albumina",
                     "description": "Rule for column Albumina"
                 }

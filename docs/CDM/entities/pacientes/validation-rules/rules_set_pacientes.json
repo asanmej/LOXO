@@ -32,7 +32,7 @@
             "description": "Rule for column Area"
         },
         {
-            "expression": "MEDEA BETWEEN 1 AND 5",
+            "expression": "MEDEA::INTEGER BETWEEN 1 AND 5",
             "name": "MEDEA",
             "description": "Rule for column MEDEA"
         },
@@ -82,7 +82,7 @@
             "description": "Rule for column CronDom"
         },
         {
-            "expression": "F_CronDom BETWEEN 1920 AND 2022 OR F_CronDom IS NULL",
+            "expression": "F_CronDom BETWEEN 2000 AND 2022 OR F_CronDom IS NULL",
             "name": "F_CronDom",
             "description": "Rule for column F_CronDom"
         }
