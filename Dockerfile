@@ -41,7 +41,10 @@ RUN micromamba install -y -n aspire -f /tmp/env_project.yaml \
 # Copy the folder structure to the appropriate path     #
 #########################################################
 COPY --chown=$MAMBA_USER:$MAMBA_USER . /home/$MAMBA_USER/projects/loxo
+COPY --chown=$MAMBA_USER:$MAMBA_USER entrypoint.sh /entrypoint.sh
 
+COPY --chown=$MAMBA_USER:$MAMBA_USER ./src/memory_logger/memory_logger.py /opt/memory_logger.py
+RUN chmod +x /entrypoint.sh
 # Change the folder name 'your_project' to a valid folder name that refers to your project.
 
 ################################
@@ -56,4 +59,6 @@ EXPOSE 3000
 
 WORKDIR /home/$MAMBA_USER
 
-ENTRYPOINT ["micromamba","run","-n","aspire","/opt/entrypoint.sh"]
+# ENTRYPOINT ["micromamba","run","-n","aspire","/opt/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["micromamba","run","-n","aspire","/opt/entrypoint.sh"]
