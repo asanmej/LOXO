@@ -1,0 +1,59 @@
+---
+title: "Multimorbidity Combinations Frequency"
+author: "Santos-Mejias Alejandro <asantosm@ext.aragon.es>, RENTERIA-AGUIRREGABIRIA JONE <JONE.RENTERIAAGUIRREGABIRIA@bio-gipuzkoa.eus>, Artamendi Maddi <maddiart19@gmail.com>"
+date: "2026-04-20"
+format: 
+  html:
+    self-contained: true
+    grid:
+      body-width: 1250px
+      margin-width: 400px
+      gutter-width: 1.5rem
+code-fold: false
+echo: false
+message: false
+warning: false
+error: false
+always_allow_html: yes
+params:
+    path_json: '../../docs/CDM/cdmb_config.json' 
+    path_database: '../../inputs/data.duckdb'
+    output_dir: '../../outputs'
+---
+
+# Análisis de Frecuencia de Combinaciones de Multimorbilidad
+
+```{r}
+#| label: setup-and-run
+#| echo: false
+#| message: false
+#| warning: false
+
+# Source the multimorbidity script to load the logic
+source("freq_generator.R")
+
+db_path <- params$path_database
+out_path <- params$output_dir
+
+# Ensure output directory exists
+if (!dir.exists(out_path)) {
+  dir.create(out_path, recursive = TRUE)
+}
+
+if (file.exists(db_path)) {
+  # Ejecutamos la función importada para generar los CSVs
+  calculate_combinations(db_path, out_path)
+} else {
+  cat("Error: La base de datos no existe en la ruta especificada (", db_path, ").\n")
+}
+
+```
+
+::: {.callout-note icon=false}
+## 📥 Acceso a los Resultados Generados
+
+Los archivos de frecuencias de combinaciones de enfermedades (formato CSV) han sido generados exitosamente.
+
+Para descargarlos, por favor dirígete a la pestaña **"OUTPUTS"** (o **"RESULTADOS"**) en la interfaz web de la aplicación ASPIRE. 
+Allí encontrarás los archivos listados y disponibles para descarga con el formato `frequencies_{Year}_{Sexo}_{Ageband}_{CCAA}.csv`.
+:::
