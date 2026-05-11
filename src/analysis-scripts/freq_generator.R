@@ -58,6 +58,22 @@ calculate_combinations <- function(db_path, output_dir) {
   pacientes_db <- tbl(con, pacientes_tbl_name)
   enfermedades_db <- tbl(con, enfermedades_tbl_name)
   
+  # Calculamos Edad a inicio de cohorte
+  pacientes_db <- pacientes_db %>%
+    select(Id_pac, F_Nac, Sexo, CCAA) %>%
+    collect() %>%
+    mutate(
+      Edad = 2012 - as.numeric(F_Nac),
+      Ageband = case_when(
+        Edad >= 60 & Edad <= 69 ~ "60-69",
+        Edad >= 70 & Edad <= 79 ~ "70-79",
+        Edad >= 80 & Edad <= 89 ~ "80-89",
+        Edad >= 90 ~ "90",
+        TRUE ~ NA_character_
+      )
+    ) %>%
+    filter(!is.na(Ageband))
+  
   years <- c(2012, 2017, 2022)
   
   for (yr in years) {
@@ -69,24 +85,8 @@ calculate_combinations <- function(db_path, output_dir) {
       select(Id_pac, EnfC) %>%
       distinct() %>%
       collect()
-    
-    # 2. Obtenemos datos de pacientes y calculamos Edad
-    pac_data <- pacientes_db %>%
-      select(Id_pac, F_Nac, Sexo, CCAA) %>%
-      collect() %>%
-      mutate(
-        Edad = yr - as.numeric(F_Nac),
-        Ageband = case_when(
-          Edad >= 60 & Edad <= 69 ~ "60-69",
-          Edad >= 70 & Edad <= 79 ~ "70-79",
-          Edad >= 80 & Edad <= 89 ~ "80-89",
-          Edad >= 90 ~ "90",
-          TRUE ~ NA_character_
-        )
-      ) %>%
-      filter(!is.na(Ageband)) # Solo los de la cohorte >= 60
       
-    # 3. Pivotar enfermedades a ancho
+    # 2. Pivotar enfermedades a ancho
     enf_wide <- enf_filtered %>%
       mutate(value = 1) %>%
       pivot_wider(names_from = EnfC, values_from = value, values_fill = 0)
@@ -100,7 +100,7 @@ calculate_combinations <- function(db_path, output_dir) {
     }
     
     # Cruzar pacientes con enfermedades
-    df_combined <- pac_data %>%
+    df_combined <- pacientes_db %>%
       left_join(enf_wide, by = "Id_pac")
       
     # Rellenar con 0 para pacientes sin enfermedades (o NA por left_join)
@@ -111,14 +111,14 @@ calculate_combinations <- function(db_path, output_dir) {
     combo_str <- do.call(paste0, df_combined[diseases_list])
     df_combined$Combination <- combo_str
     
-    # 4. Agrupar y contar frecuencias
+    # 3. Agrupar y contar frecuencias
     results <- df_combined %>%
       group_by(Sexo, Ageband, CCAA, Combination) %>%
       summarise(Frequency = n(), .groups = "drop") %>%
       mutate(Year = yr) %>%
       select(Year, Sexo, Ageband, CCAA, Combination, Frequency)
       
-    # 5. Generar CSVs
+    # 4. Generar CSVs
     groups_to_save <- results %>% group_by(Sexo, Ageband, CCAA) %>% group_split()
     
     for(g in groups_to_save) {
