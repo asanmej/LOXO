@@ -98,6 +98,8 @@ calculate_combinations <- function(db_path, output_dir) {
         enf_wide[[md]] <- 0
       }
     }
+    # Ordenar columnas faltantes
+    setcolorder(enf_wide, c("Id_pac", diseases_list))
     
     # Cruzar pacientes con enfermedades
     df_combined <- pacientes_db %>%
@@ -108,7 +110,7 @@ calculate_combinations <- function(db_path, output_dir) {
       mutate(across(all_of(diseases_list), ~replace_na(.x, 0)))
       
     # Generar string de combinación binario (alfabético estricto)
-    combo_str <- do.call(paste0, df_combined[diseases_list])
+    combo_str <- do.call(paste0, df_combined[, ..diseases_list])
     df_combined$Combination <- combo_str
     
     # 3. Agrupar y contar frecuencias
