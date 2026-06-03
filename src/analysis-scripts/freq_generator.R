@@ -60,7 +60,9 @@ calculate_combinations <- function(db_path, output_dir) {
   
   # Calculamos Edad a inicio de cohorte
   pacientes_db <- pacientes_db %>%
-    select(Id_pac, F_Nac, Sexo, CCAA) %>%
+    # Filtrar bajas por cualquier motivo
+    filter(Baja == 0) %>%
+    select(Id_pac, F_Nac, F_Exitus, Sexo, CCAA) %>%
     collect() %>%
     mutate(
       Edad = 2012 - as.numeric(F_Nac),
@@ -98,11 +100,13 @@ calculate_combinations <- function(db_path, output_dir) {
         enf_wide[[md]] <- 0
       }
     }
-    # Ordenar columnas faltantes
-    setcolorder(enf_wide, c("Id_pac", diseases_list))
+    # Ordenar columnas
+    enf_wide <- enf_wide[, c("Id_pac", diseases_list)]
     
+    # Eliminar muertos antes de fecha de corte
+    pacientes_db_filter <- pacientes_db %>% filter(F_Exitus > cutoff_date | is.na(F_Exitus))
     # Cruzar pacientes con enfermedades
-    df_combined <- pacientes_db %>%
+    df_combined <- pacientes_db_filter %>%
       left_join(enf_wide, by = "Id_pac")
       
     # Rellenar con 0 para pacientes sin enfermedades (o NA por left_join)
@@ -110,7 +114,7 @@ calculate_combinations <- function(db_path, output_dir) {
       mutate(across(all_of(diseases_list), ~replace_na(.x, 0)))
       
     # Generar string de combinación binario (alfabético estricto)
-    combo_str <- do.call(paste0, df_combined[, ..diseases_list])
+    combo_str <- do.call(paste0, df_combined[diseases_list])
     df_combined$Combination <- combo_str
     
     # 3. Agrupar y contar frecuencias
