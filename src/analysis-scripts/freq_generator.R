@@ -60,9 +60,7 @@ calculate_combinations <- function(db_path, output_dir) {
   
   # Calculamos Edad a inicio de cohorte
   pacientes_db <- pacientes_db %>%
-    # Filtrar bajas por cualquier motivo
-    filter(Baja == 0) %>%
-    select(Id_pac, F_Nac, F_Exitus, Sexo, CCAA) %>%
+    select(Id_pac, F_Nac, F_Exitus, F_Baja, Sexo, CCAA) %>%
     collect() %>%
     mutate(
       Edad = 2012 - as.numeric(F_Nac),
@@ -81,13 +79,13 @@ calculate_combinations <- function(db_path, output_dir) {
   for (yr in years) {
     cutoff_date <- paste0(yr, "-01-01")
     
-    # 1. Filtramos enfermedades antes de la fecha de corte
+    # 1. Filtramos enfermedades antes de la fecha de corte.
     enf_filtered <- enfermedades_db %>%
       filter(F_EnfC < cutoff_date) %>%
       select(Id_pac, EnfC) %>%
       distinct() %>%
       collect()
-      
+
     # 2. Pivotar enfermedades a ancho
     enf_wide <- enf_filtered %>%
       mutate(value = 1) %>%
@@ -103,8 +101,12 @@ calculate_combinations <- function(db_path, output_dir) {
     # Ordenar columnas
     enf_wide <- enf_wide[, c("Id_pac", diseases_list)]
     
+    pacientes_db_filter <- pacientes_db %>% 
+      # Filtrar bajas de forma dinámica.
+      filter(F_Baja > yr | is.na(F_Baja)) %>%
     # Eliminar muertos antes de fecha de corte
-    pacientes_db_filter <- pacientes_db %>% filter(F_Exitus > cutoff_date | is.na(F_Exitus))
+      filter(F_Exitus > cutoff_date | is.na(F_Exitus))
+    
     # Cruzar pacientes con enfermedades
     df_combined <- pacientes_db_filter %>%
       left_join(enf_wide, by = "Id_pac")
