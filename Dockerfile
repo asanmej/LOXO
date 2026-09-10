@@ -7,7 +7,8 @@ ENV PIPELINE_VERSION=$pipeline_version
 #########################################################
 
 USER root
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
+RUN echo "deb http://archive.debian.org/debian bullseye main" > /etc/apt/sources.list && \
+    apt-get update -o Acquire::Check-Valid-Until=false --allow-unauthenticated --allow-releaseinfo-change && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends xdg-utils && \
     rm -rf /var/lib/apt/lists/*
 
