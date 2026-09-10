@@ -7,8 +7,7 @@ ENV PIPELINE_VERSION=$pipeline_version
 #########################################################
 
 USER root
-RUN apt update && apt install -y --no-install-recommends \
-  && apt install -y xdg-utils \
+RUN apt update && apt install -y --no-install-recommends xdg-utils \
   && rm -rf /var/lib/apt/lists/*
 
 #############################################################
