@@ -7,9 +7,8 @@ ENV PIPELINE_VERSION=$pipeline_version
 #########################################################
 
 USER root
-RUN ARG DEBIAN_FRONTEND=noninteractive \
-    apt-get update && \
-    apt-get install -y --no-install-recommends xdg-utils && \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends xdg-utils && \
     rm -rf /var/lib/apt/lists/*
 
 #############################################################
