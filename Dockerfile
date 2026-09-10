@@ -7,8 +7,10 @@ ENV PIPELINE_VERSION=$pipeline_version
 #########################################################
 
 USER root
-RUN apt update && apt install -y --no-install-recommends xdg-utils \
-  && rm -rf /var/lib/apt/lists/*
+RUN ARG DEBIAN_FRONTEND=noninteractive \
+    apt-get update && \
+    apt-get install -y --no-install-recommends xdg-utils && \
+    rm -rf /var/lib/apt/lists/*
 
 #############################################################
 # Customization: Set time zone within the container         #
