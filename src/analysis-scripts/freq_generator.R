@@ -120,11 +120,38 @@ calculate_combinations <- function(db_path, output_dir) {
     df_combined$Combination <- combo_str
     
     # 3. Agrupar y contar frecuencias
-    results <- df_combined %>%
-      group_by(Sexo, Ageband, CCAA, Combination) %>%
-      summarise(Frequency = n(), .groups = "drop") %>%
-      mutate(Year = yr) %>%
-      select(Year, Sexo, Ageband, CCAA, Combination, Frequency)
+    if (yr == 2012) {
+      df_combined <- df_combined %>%
+        mutate(
+          yr_exitus = as.numeric(substr(as.character(F_Exitus), 1, 4)),
+          yr_baja = as.numeric(F_Baja)
+        )
+      
+      followup_years <- 2012:2022
+      
+      for (y in followup_years) {
+        df_combined[[paste0("m", y)]] <- as.numeric(!is.na(df_combined$yr_exitus) & df_combined$yr_exitus == y)
+        df_combined[[paste0("c", y)]] <- as.numeric(!is.na(df_combined$yr_baja) & df_combined$yr_baja == y)
+      }
+      
+      m_c_cols <- c(paste0("m", followup_years), paste0("c", followup_years))
+      
+      results <- df_combined %>%
+        group_by(Sexo, Ageband, CCAA, Combination) %>%
+        summarise(
+          Frequency = n(),
+          across(all_of(m_c_cols), sum),
+          .groups = "drop"
+        ) %>%
+        mutate(Year = yr) %>%
+        select(Year, Sexo, Ageband, CCAA, Combination, Frequency, all_of(m_c_cols))
+    } else {
+      results <- df_combined %>%
+        group_by(Sexo, Ageband, CCAA, Combination) %>%
+        summarise(Frequency = n(), .groups = "drop") %>%
+        mutate(Year = yr) %>%
+        select(Year, Sexo, Ageband, CCAA, Combination, Frequency)
+    }
       
     # 4. Generar CSVs
     groups_to_save <- results %>% group_by(Sexo, Ageband, CCAA) %>% group_split()
